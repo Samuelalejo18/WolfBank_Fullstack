@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/auth.context";
 import "../styles/login.css";
 function LoginPage() {
@@ -106,7 +106,9 @@ function LoginPage() {
           <a href="password%20olvidada.html">Forgot your password?</a>
         </button>
         <button className="help">
-          <a href="registrate%20aqui.html">Sign up here</a>
+          <Link to="/register">
+             Sign up here
+          </Link>
         </button>
       </article>
 

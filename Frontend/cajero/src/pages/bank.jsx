@@ -3,6 +3,7 @@ function Bank() {
  
   return (
     <>
+    {/*
     <body className="grid_container" id="grid_container">
     <header className="header">
       <img src="../src/assets/logo%20wolf.png" id="wolf_logo" alt="" />
@@ -303,6 +304,7 @@ function Bank() {
       <p>Wolf Bank. All rights reserved 2023</p>
     </footer>
     </body>
+  */}
   </>
   
   );

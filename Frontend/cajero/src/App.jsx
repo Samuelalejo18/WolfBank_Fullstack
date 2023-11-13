@@ -3,6 +3,7 @@ import ProtectedRoute from "./components/protectectedRoutes";
 import { AuthProvider } from "./context/auth.context";
 import Bank from "./pages/bank";
 import LoginPage from "./pages/login";
+import RegisterPage from "./pages/register";
 function App() {
   return (
     <>
@@ -10,6 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LoginPage />} />
+          <Route path="/register" element={< RegisterPage />} />
           <Route path="/Bank" element={<Bank />} />
         <Route element={<ProtectedRoute />}>
      
