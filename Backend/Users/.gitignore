@@ -1,0 +1,5 @@
+node_modules
+
+package-lock.json
+
+//el env no se debe subir, pero en este caso se le realizo git para que funcione en cualquier computador el servidor

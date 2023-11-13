@@ -1,0 +1,453 @@
+html {
+    height: 100%;
+}
+
+body {
+    z-index: -1;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: rgb(25, 0, 32);
+    min-height: 100%;
+    animation: aparecer 1s ease-in-out forwards;
+}
+
+meta {
+    name: viewport;
+    content: width=device-width, initial-scale=1.0;
+}
+
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+        /* Comienza completamente transparente */
+    }
+
+    100% {
+        opacity: 1;
+        /* Termina completamente visible */
+    }
+}
+
+.grid_container {
+    display: grid;
+    grid-template-areas:
+        "header header header "
+        " main main  main"
+        "article article  article "
+        "footer footer footer";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto auto;
+
+}
+
+@media (max-width: 600px) {
+    .grid_container {
+        grid-template-areas:
+            "header"
+            "main"
+            "article"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+    }
+
+
+    .container3 {
+
+        height: 100% !important;
+        width: 90% !important;
+
+    }
+
+    .header {
+        height: 30vh !important;
+        display: flex !important;
+        justify-content: center !important;
+
+    }
+
+    #wolf_banck {
+        font-size: 400% !important;
+        /* Ajusta el tamaño del texto según sea necesario */
+    }
+
+    .article {
+        height: 13vh !important;
+    }
+
+    #ingresar {
+
+
+        padding: 1px 40px !important;
+
+    }
+
+
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .grid_container {
+        grid-template-areas:
+            "header header"
+            "main main"
+            "article article"
+            "footer footer";
+        grid-template-columns: 2fr;
+        grid-template-rows: auto auto auto auto;
+    }
+
+    .header {
+        height: 30vh;
+    }
+
+    .container3 {
+
+        height: 100% !important;
+        width: 90% !important;
+
+    }
+
+    #wolf_banck {
+        font-size: 400% !important;
+
+    }
+}
+
+
+.erros {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 15px;
+    flex-direction: row !important;
+}
+
+.error {
+    background-color: rgb(128, 0, 128);
+    padding-bottom: 0;
+    padding-top: 0;
+    margin: 0;
+    padding-left: 3px;
+    padding-right: 6px;
+    border-radius: 20px;
+}
+
+
+
+.header {
+    grid-area: header;
+    display: flex;
+    height: 30vh;
+    gap: 20px;
+    flex-direction: row;
+    justify-content: center;
+    cursor: default;
+}
+
+#wolf_logo {
+    position: relative;
+
+    height: 90%;
+    width: 100%;
+}
+
+p {
+    color: white;
+}
+
+#wolf_banck {
+    bottom: 10px;
+    mix-blend-mode: screen;
+    font-family: 'Paytone One', sans-serif;
+    font-size: 100px;
+    background: url(https://i.gifer.com/WSG.gif);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main {
+    grid-area: main;
+    height: 50vh;
+
+}
+
+.container2 {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    height: 100%;
+}
+
+#bancavirtual {
+
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    font-family: 'Paytone One', sans-serif;
+}
+
+.container3 {
+    border-radius: 20px;
+    height: 80%;
+    width: 35%;
+
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 5px solid purple;
+    border-top: 5px solid purple;
+
+
+}
+
+input[type="checkbox"] {
+    accent-color: mediumorchid;
+    caret-color: mediumorchid;
+}
+
+input[type="text"] {
+    accent-color: mediumorchid;
+    caret-color: mediumorchid;
+}
+
+input[type="password"] {
+    accent-color: mediumorchid;
+    caret-color: mediumorchid;
+}
+
+.inputBox {
+    position: relative;
+    width: 60%;
+    top: 40px;
+    right: 20px;
+
+
+
+}
+
+.inputBox2 {
+    position: relative;
+    width: 60%;
+    top: 40px;
+    right: 20px;
+
+}
+
+.username input {
+    padding: 15px 20px;
+    outline: none;
+    width: 100%;
+    background: transparent;
+    border-radius: 8px;
+    color: #fff;
+    border: 1px solid rgb(233, 19, 52);
+    font-size: 1em;
+}
+
+.inputBox input {
+    padding: 15px 20px;
+    outline: none;
+    width: 100%;
+    background: transparent;
+    border-radius: 8px;
+    color: #fff;
+
+    border: 1px solid rgb(233, 19, 52);
+    font-size: 1em;
+
+}
+
+.username span {
+    position: absolute;
+    left: 2px;
+    top: 1px;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 1em;
+    transition: 0.5s;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+    letter-spacing: 0.1em;
+}
+
+.inputBox span {
+    position: absolute;
+    left: 2px;
+    top: 1px;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 1em;
+    transition: 0.5s;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+    letter-spacing: 0.1em;
+
+}
+
+.username input:focus~span,
+.inputBox input:valid~span {
+    color: rgb(8, 8, 8);
+    font-size: 0.75em;
+    transform: translateX(10px) translateY(-7px);
+    padding: 0 5px;
+    background: blueviolet;
+    border-radius: 2px;
+}
+
+.errorZoddiv {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.errorZod {
+    background-color: rgb(128, 0, 128);
+    border-radius: 20px;
+    margin: 0;
+    padding: 5px;
+}
+
+.inputBox input:focus~span,
+.inputBox input:valid~span {
+    color: rgb(8, 8, 8);
+    font-size: 0.75em;
+    transform: translateX(10px) translateY(-7px);
+    padding: 0 5px;
+    background: blueviolet;
+    border-radius: 2px;
+}
+
+#toggle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -20px;
+    background: url(../src/assets/show.png);
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+#toggle.hide {
+    background: url(../src/assets/hide.png);
+    background-size: cover;
+}
+
+#Remember {
+    position: relative;
+    top: 10px;
+
+    padding: 0;
+    border: 0;
+    margin: 0;
+    display: flex;
+
+    flex-direction: row;
+
+}
+
+.remember {
+    margin-top: 0.5rem;
+}
+
+.ingresar {
+    margin-bottom: 1.5rem;
+}
+
+#ingresar {
+
+    outline: none;
+    font-size: 100%;
+    border-radius: 18px;
+    padding: 2px 50px;
+    border: 2px solid white;
+    cursor: pointer;
+    background-color: transparent;
+    font-family: 'Paytone One', sans-serif;
+}
+
+#ingresar:hover {
+    background-color: purple;
+    border-color: black;
+}
+
+#ingresar p {
+    background-color: transparent;
+}
+
+article,
+.help {
+    display: flex;
+    gap: 20px;
+
+    flex-direction: row;
+    justify-content: center;
+
+    outline: none;
+    border: none;
+    text-decoration: none;
+    color: white;
+}
+
+button.help a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+button.help {
+    position: relative;
+    top: 10%;
+    background-color: transparent;
+    border: none;
+}
+
+button.help a:hover {
+
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: article;
+    height: 10vh;
+
+
+}
+
+.footer {
+    grid-area: footer;
+    display: flex;
+    align-items: end;
+    height: 10vh;
+    width: 100%;
+}
+
+.reserved {
+    background-color: black;
+    display: flex;
+    height: 60%;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#wolf {
+    width: 40px;
+    height: 40px;
+}

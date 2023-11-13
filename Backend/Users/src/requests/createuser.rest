@@ -1,0 +1,18 @@
+POST  http://localhost:5000/api/register
+Content-Type: application/json
+{
+  "name":"samuel",
+  "lastName":"Monsalve Sarmiento ", 
+  "identificationCard":1014180740,
+  "username":"samuelalejo51",
+  "email":"samuelalejomonsale13@gmail.com",
+  "password":"Lukas2012"
+}
+ {
+  "name":"Tomas",
+  "lastName":"Delgado ", 
+  "identificationCard":1014180727,
+  "userName":"Thomson12",
+  "email":"thomnson@gmail.com",
+  "password":"sonic2"
+}
