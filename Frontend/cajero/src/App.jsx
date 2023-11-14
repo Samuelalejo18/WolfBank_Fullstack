@@ -7,18 +7,18 @@ import RegisterPage from "./pages/register";
 function App() {
   return (
     <>
-    <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LoginPage />} />
-          <Route path="/register" element={< RegisterPage />} />
-          <Route path="/Bank" element={<Bank />} />
-        <Route element={<ProtectedRoute />}>
-     
-        </Route>
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/register" element={< RegisterPage />} />
+
+            <Route element={<ProtectedRoute />}>
+              <Route path="/Bank" element={<Bank />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </>
   );
 }

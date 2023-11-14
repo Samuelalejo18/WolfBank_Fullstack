@@ -7,15 +7,19 @@ require("dotenv").config();
 const { SECRET } = process.env;
 
 const register = async (req, res) => {
-  const { name, lastName,  identificationCard,  email, password, } = req.body;
+  const { name, lastName, identificationCard,userName, email, balance, password } = req.body;
   try {
     const userFoundEmail = await User.findOne({ email });
     if (userFoundEmail) return res.status(400).json(["  ❌ The email already exists"]);
     const userFound = await User.findOne({ identificationCard });
     if (userFound) return res.status(400).json([" ❌ The  identification Card already exists"]);
+
+    const userFoundUser = await User.findOne({ userName });
+    if (userFoundUser) return res.status(400).json([" ❌ The  username already exists"]);
+
     const passwordHash = await bcrypt.hash(password, 10);
     const newUser = new User({
-      name, lastName,  identificationCard, email, password: passwordHash,
+      name, lastName, identificationCard, userName, email, password: passwordHash, balance
     });
 
     const userSaved = await newUser.save();
@@ -26,9 +30,10 @@ const register = async (req, res) => {
       id: userSaved._id,
       name: userSaved.name,
       lastName: userSaved.lastName,
-      identificationCard:  userSaved. identificationCard,
+      identificationCard: userSaved.identificationCard,
+      userName: userSaved.identificationCard,
       email: userSaved.email,
-   
+      balance: userSaved.balance
     });
 
   } catch (error) {
@@ -62,7 +67,6 @@ const login = async (req, res) => {
 
     res.json({
       id: userFound._id,
-     
       email: userFound.email,
       name: userFound.name,
       lastName: userFound.lastName,
@@ -119,7 +123,7 @@ const transfer = async (req, res) => {
     console.log(authenticatedUser.userFound.identificationCard);
     console.log(recipientUser.userFound.identificationCard);
 
-    /* if (uthenticatedUser.userFound.balance >= balance) {
+     if (uthenticatedUser.userFound.balance >= balance) {
       userFound.balance -= balance;
       await userFound.save();
       res.json({
@@ -131,12 +135,13 @@ const transfer = async (req, res) => {
         .status(400)
         .json({ message: "Failed withdrawal, insufficient balance" });
     }
-    */
+    
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
 
 //Deslogearse o cerrerar el token
 
@@ -173,7 +178,7 @@ const verifyToken = async (req, res) => {
 
     return res.json({
       id: userFound._id,
-    
+
       email: userFound.email,
       identificationCard: userFound.identificationCard,
       name: userFound.name,
