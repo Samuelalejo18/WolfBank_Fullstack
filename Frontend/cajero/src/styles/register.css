@@ -29,7 +29,7 @@ meta {
     }
 }
 
-.grid_container {
+.grid_container1 {
     display: grid;
     grid-template-areas:
         "header header header "
@@ -42,7 +42,7 @@ meta {
 }
 
 @media (max-width: 600px) {
-    .grid_container {
+    .grid_container1 {
         grid-template-areas:
             "header"
             "main"
@@ -53,21 +53,21 @@ meta {
     }
 
 
-    .container3 {
+    .container4 {
 
         height: 100% !important;
         width: 90% !important;
 
     }
 
-    .header {
+    .header2 {
         height: 30vh !important;
         display: flex !important;
         justify-content: center !important;
 
     }
 
-    #wolf_banck {
+    #wolf_banck2 {
         font-size: 400% !important;
         /* Ajusta el tamaño del texto según sea necesario */
     }
@@ -87,28 +87,28 @@ meta {
 }
 
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
-    .grid_container {
+    .grid_container1 {
         grid-template-areas:
             "header header"
-            "main main"
+            "main2 main2"
             "article article"
             "footer footer";
         grid-template-columns: 2fr;
         grid-template-rows: auto auto auto auto;
     }
 
-    .header {
-        height: 30vh;
+    .header2 {
+        height: 20vh;
     }
 
-    .container3 {
+    .container4 {
 
         height: 100% !important;
         width: 90% !important;
 
     }
 
-    #wolf_banck {
+    #wolf_banck2 {
         font-size: 400% !important;
 
     }
@@ -135,13 +135,14 @@ meta {
 
 
 
-.header {
+.header2 {
     grid-area: header;
     display: flex;
-    height: 30vh;
+    height: 15vh;
     gap: 20px;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     cursor: default;
 }
 
@@ -156,19 +157,19 @@ p {
     color: white;
 }
 
-#wolf_banck {
+#wolf_banck2 {
     bottom: 10px;
     mix-blend-mode: screen;
     font-family: 'Paytone One', sans-serif;
-    font-size: 100px;
+    font-size: 60px;
     background: url(https://i.gifer.com/WSG.gif);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.main {
+.main2 {
     grid-area: main;
-    height: 50vh;
+    height: 65vh;
 
 }
 
@@ -190,9 +191,9 @@ p {
     font-family: 'Paytone One', sans-serif;
 }
 
-.container3 {
+.container4 {
     border-radius: 20px;
-    height: 80%;
+    height: 70vh;
     width: 35%;
 
     display: flex;
@@ -400,17 +401,14 @@ article,
 }
 
 
-
-.help a {
+.help {
     position: relative;
     top: 10%;
     background-color: transparent;
     border: none;
-    text-decoration: none;
-    color: inherit;
 }
 
-.help a :hover {
+.help :hover {
 
     text-decoration: underline;
     cursor: pointer;
@@ -448,4 +446,55 @@ article,
 #wolf {
     width: 40px;
     height: 40px;
+}
+
+#Remember{
+    position: relative;
+
+gap: 10px;
+    padding-left: 180px;
+    padding-right: 180px;
+    border: 0;
+    margin: 0;
+    display: flex;
+
+    flex-direction: row;
+
+}
+#Remember span{
+    text-decoration: underline;
+    color: mediumpurple;
+}
+#Remember span:hover{
+    text-decoration: underline;
+    color: mediumpurple;
+    cursor: pointer;
+}
+
+#Next, #Cancel{
+    position: relative;
+    text-decoration: none;
+    outline: none;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 5px 60px;
+    border: 2px solid white ;
+    cursor: pointer;
+    background-color: transparent;
+    font-family: 'Paytone One', sans-serif;
+}
+input[type="checkbox"]{
+    accent-color: mediumorchid;
+    caret-color: mediumorchid;
+}
+#Cancel:hover{
+    background-color:purple;
+    border-color: black;
+}
+#Next:hover{
+    background-color:purple;
+    border-color: black;
+}
+#Next, #Cancel p{
+    background-color: transparent;
 }

@@ -3,11 +3,11 @@ function Bank() {
  
   return (
     <>
-    {/*
-    <body className="grid_container" id="grid_container">
-    <header className="header">
-      <img src="../src/assets/logo%20wolf.png" id="wolf_logo" alt="" />
-      <p id="wolf_banck">Wolf Bank</p>
+    
+    <body className="grid_container4" id="grid_container4">
+    <header className="header3">
+      <img src="../src/assets/logo%20wolf.png" id="wolf_logo4" alt="" />
+      <p id="wolf_banck4">Wolf Bank</p>
     </header>
     <nav className="navbar">
       <p style={{ color: "white" }}>Date of admission:</p>
@@ -20,13 +20,13 @@ function Bank() {
         </span>{" "}
       </button>
     </nav>
-    <header2 className="header2">
+    <section className="section">
       <h1 style={{ color: "white" }}>
         {" "}
         Hi, <span>Samuel</span>
       </h1>
-    </header2>
-    <nav2 className="navbar2">
+    </section>
+    <aside className="aside">
       <div className="button">
         <div className="column">
           {" "}
@@ -52,7 +52,7 @@ function Bank() {
         <div className="column">
           {" "}
           <button className="btn" id="ingresar1">
-            <img src=" ../src/assets/ingresar.png" id="ingresar" alt="" />{" "}
+            <img src=" ../src/assets/ingresar.png" id="ingresar2" alt="" />{" "}
             <p style={{ color: "white" }}>Deposit </p>
           </button>
         </div>
@@ -65,13 +65,13 @@ function Bank() {
           </button>
         </div>
       </div>
-    </nav2>
+    </aside>
     <aside className="sidebar">
       <div>
         <button id="moneyProductos">
           {" "}
           <img src="../src/assets/money.png" className="imageMoney" alt="" />{" "}
-          <p>
+          <p   style={{ color: "black" }}>
             {" "}
             <strong>Request your products</strong> without leaving home and learn
             more benefits
@@ -83,14 +83,14 @@ function Bank() {
         <button id="help">Help</button>
       </div>
     </aside>
-    <main className="main">
+    <main className="main4">
       <div className="productos">
-        <p className="savingsAccounts">Savings accounts</p>
+        <p  style={{ color: "black" }} className="savingsAccounts">Savings accounts</p>
         <div className="form">
           <div id="numberAcount">
             <img src="../src/assets/pig.png" id="pig" alt="" />
             <div id="Cta">
-              <p> Svgs accnt Nomina</p>
+              <p   style={{ color: "black" }}> Svgs accnt Nomina</p>
               <img src="../src/assets/show.png" id="show1" alt="" />
             </div>
             <button id="btnpoints">
@@ -100,7 +100,7 @@ function Bank() {
           </div>
           <div id="availableBalance">
             <p id="Balance">$200000</p>
-            <p id="Available">Available balance</p>
+            <p style={{ color: "black" }} id="Available">Available balance</p>
           </div>
           <div className="Seedetails">
             <button className="details">See details</button>
@@ -108,12 +108,12 @@ function Bank() {
         </div>
       </div>
       <div className="productos">
-        <p className="savingsAccounts">Investments</p>
+        <p  style={{ color: "black" }} className="savingsAccounts">Investments</p>
         <div className="form">
           <img src="../src/assets/inversion.png" id="Investments" alt="inversion" />
           <div className="Textinversion">
-            <p>Investments</p>
-            <p>Wolf bank Securities</p>
+            <p   style={{ color: "black" }}>Investments</p>
+            <p   style={{ color: "black" }}>Wolf bank Securities</p>
           </div>
           <div className="Seeinvestments">
             <button className="investmentslook">See investments</button>
@@ -124,14 +124,14 @@ function Bank() {
         <div className=" border1">
           <div id="cdttoday">
             {" "}
-            <p>Open your CDT today!</p>
+            <p   style={{ color: "black" }}>Open your CDT today!</p>
           </div>
           <div className="TextCDT">
-            <p>
+            <p   style={{ color: "black" }}>
               {" "}
               <strong> Invest your money</strong>
             </p>
-            <p> Without fees and without going to the bank!</p>
+            <p   style={{ color: "black" }}> Without fees and without going to the bank!</p>
           </div>
           <div className="OpenCDT">
             <button className="cdt">
@@ -141,18 +141,18 @@ function Bank() {
         </div>
       </div>
       <div className="productos2">
-        <p className="savingsAccounts">Insurance and assistance</p>
+        <p  style={{ color: "black" }} className="savingsAccounts">Insurance and assistance</p>
         <div className="border1">
           <div id="cdttoday">
             {" "}
-            <p>Insurance</p>
+            <p   style={{ color: "black" }}>Insurance</p>
           </div>
           <div className="TextCDT">
-            <p>
+            <p   style={{ color: "black" }}>
               {" "}
               <strong> Get insured today!</strong>
             </p>
-            <p> Prepare for the future by purchasing insurance</p>
+            <p   style={{ color: "black" }}> Prepare for the future by purchasing insurance</p>
           </div>
           <div className="OpenCDT">
             <button className="cdt">
@@ -162,6 +162,7 @@ function Bank() {
         </div>
       </div>
     </main>
+    {/*
     <div className="modal_container" id="mondal_container">
       <div className="modal" id="modal2">
         <h1 id="Sure"> Are you sure you want to log out?</h1>
@@ -231,7 +232,7 @@ function Bank() {
         </div>
         <hr />
         <div id="valor">
-          <p>
+          <p   style={{ color: "black" }}>
             <strong> Value </strong>
           </p>
           <p id="Value"> </p>
@@ -268,43 +269,44 @@ function Bank() {
         </div>
       </div>
     </div>
-    <article id="article">
+  */}
+    <article className="article4">
       <div className="taxcertificate">
         <p id="new"> New</p>
-        <p>
+        <p   style={{ color: "black" }}>
           <b>Tax certificates</b>, download them in two steps
         </p>
         <button id="download"> Download</button>
       </div>
     </article>
-    <article id="article2">
+    <article className="article5">
       <div id="article2_1">
         <div className="taxcertificate2">
           <img src="../src/assets/localizacion.png" className="travel" alt="localizacion" />
           <div id="textTravel">
-            <p className="discover">
+            <p  style={{ color: "black" }} className="discover">
               <b>Discover new destinations !</b>
             </p>
-            <p className="travelcredit">Travel with Wolf bank credit card</p>
+            <p  style={{ color: "black" }} className="travelcredit">Travel with Wolf bank credit card</p>
           </div>
         </div>
         <div className="taxcertificate2">
           <img src="../src/assets/carro.png" alt="" className="travel" />
           <div id="textTravel">
-            <p className="discover">
+            <p  style={{ color: "black" }} className="discover">
               <b>Buy what you like</b>
             </p>
-            <p className="travelcredit">Enjoy special benefits</p>
+            <p style={{ color: "black" }} className="travelcredit">Enjoy special benefits</p>
           </div>
         </div>
       </div>
     </article>
-    <footer className="footer">
+    <footer className="footer4">
       <img src="../src/assets/lobo.png" id="wolf" alt="" />
-      <p>Wolf Bank. All rights reserved 2023</p>
+      <p   style={{ color: "black" }}>Wolf Bank. All rights reserved 2023</p>
     </footer>
     </body>
-  */}
+  
   </>
   
   );

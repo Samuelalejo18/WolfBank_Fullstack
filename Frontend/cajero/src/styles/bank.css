@@ -1,11 +1,9 @@
-
-/*
-html{
+html {
     height: 100%;
 }
 
 
-body{
+body {
     z-index: 10;
     padding: 0;
     margin: 0;
@@ -18,27 +16,29 @@ body{
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
 }
 
 
-.grid_container{
+.grid_container {
     display: grid;
     grid-template-areas:
-            "header header header header navbar navbar navbar"
-             "header2 header2 header2 header2 nav2 nav2 nav2"
+        "header header header header navbar navbar navbar"
+        "section section section section aside aside aside"
 
-              "sidebar sidebar sidebar sidebar sidebar sidebar sidebar"
-             "main main main main main main main"
-            "modal_container modal_container modal_container modal_container modal_container modal_container modal_container"
-              "article article article article article article article"
-            "article2 article2 article2 article2 article2 article2 article2"
-            "footer footer footer footer footer footer  footer ";
-;
+        "sidebar sidebar sidebar sidebar sidebar sidebar sidebar"
+        "main main main main main main main"
+        "modal_container modal_container modal_container modal_container modal_container modal_container modal_container"
+        "article article article article article article article"
+        "article2 article2 article2 article2 article2 article2 article2"
+        "footer footer footer footer footer footer  footer ";
+    ;
 }
-.header{
+
+.header3 {
 
     grid-area: header;
     position: fixed;
@@ -52,12 +52,12 @@ body{
     background-color: rgb(25, 0, 32);
 }
 
-.header2{
+.section {
 
-    grid-area: header2;
+    grid-area: section;
     box-shadow: 0 10px 6px rgba(0, 0, 0, 0.1);
     height: 14vh;
-    margin-top:0.5rem ;
+    margin-top: 0.5rem;
     margin-left: 6rem;
     display: flex;
     justify-content: start;
@@ -69,7 +69,8 @@ body{
 
 
 
-#wolf_logo, #wolflogo {
+#wolf_logo4,
+#wolflogo {
 
     position: relative;
     bottom: 0.2rem;
@@ -80,7 +81,7 @@ body{
 
 
 
-#wolf_banck {
+#wolf_banck4 {
     mix-blend-mode: screen;
     font-family: 'Paytone One', sans-serif;
     font-size: 50px;
@@ -89,21 +90,26 @@ body{
     -webkit-text-fill-color: transparent;
 }
 
-#retiro,#pay1,#trans1,  #ingresar, #salir{
+#retiro,
+#pay1,
+#trans1,
+#ingresar2,
+#salir {
     height: 50px;
     width: 50px;
     transition: transform 0.3s ease;
 }
 
 
-.column{
+.column {
     flex-direction: column;
     color: white;
 }
-.navbar{
+
+.navbar {
     flex-direction: row;
     height: 9vh;
-    margin-top:0.5rem ;
+    margin-top: 0.5rem;
     margin-right: 4rem;
     grid-area: navbar;
     background-color: rgb(25, 0, 32);
@@ -115,14 +121,15 @@ body{
     align-content: center;
     align-items: center;
 }
-.navbar2{
+
+.aside {
     flex-direction: row;
     height: 14vh;
 
     font-family: sans-serif;
-    margin-top:0.5rem ;
+    margin-top: 0.5rem;
     margin-right: 1rem;
-    grid-area: nav2;
+    grid-area: aside;
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
     z-index: 100;
     display: flex;
@@ -136,7 +143,8 @@ body{
 #admission::before {
     content: attr(datetime);
 }
-.button{
+
+.button {
     position: relative;
 
     gap: 20px;
@@ -146,9 +154,10 @@ body{
     justify-content: space-between;
 
 }
-.btn{
+
+.btn {
     background-color: transparent;
-    border:0;
+    border: 0;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -156,12 +165,13 @@ body{
 .btn:hover {
     transform: scale(1.3);
 }
+
 ::-webkit-scrollbar {
     width: 1px;
 }
 
-.sidebar{
-    background-color: rgb(245,244,245);
+.sidebar {
+    background-color: rgb(245, 244, 245);
     text-align: center;
 
     color: black;
@@ -170,7 +180,7 @@ body{
     grid-area: sidebar;
     height: 15vh;
 
-    justify-content:space-around;
+    justify-content: space-around;
     align-content: center;
     align-items: center;
     justify-items: center;
@@ -182,7 +192,7 @@ body{
 }
 
 
-.main {
+.main4 {
     margin: 0;
     padding: 0;
     grid-area: main;
@@ -190,8 +200,8 @@ body{
     z-index: -10000;
     display: flex;
     flex-direction: row;
-    background-color: rgb(245,244,245);
-    gap:20px;
+    background-color: rgb(245, 244, 245);
+    gap: 20px;
     align-items: center;
     justify-content: center;
     font-family: 'Paytone One', sans-serif;
@@ -208,27 +218,30 @@ body{
     position: relative;
     width: 17rem;
     height: 12rem;
-    border-radius:5px ;
+    border-radius: 5px;
 }
-.productos .form{
+
+.productos .form {
     position: absolute;
-    inset:4px;
-    background:white;
+    inset: 4px;
+    background: white;
     padding: 50px 40px;
-    border-radius:8px ;
+    border-radius: 8px;
     z-index: 2;
     display: flex;
     flex-direction: row;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-#pig{
+
+#pig {
     width: 2rem;
     height: 2rem;
     position: relative;
     bottom: 2.7rem;
     right: 1.7rem;
 }
-#Cta{
+
+#Cta {
     display: flex;
     font-size: 1rem;
     position: relative;
@@ -241,13 +254,15 @@ body{
     font-family: sans-serif;
     flex-direction: column;
 }
-#show1{
+
+#show1 {
     width: 1rem;
     height: 1rem;
     position: relative;
     bottom: 0.8rem;
 }
-#btnpoints{
+
+#btnpoints {
     border: none;
     background: none;
     cursor: pointer;
@@ -257,12 +272,13 @@ body{
     bottom: 9rem;
     left: 11.5rem;
 }
-#points{
+
+#points {
     width: 2rem;
     height: 2rem;
 }
 
-#availableBalance{
+#availableBalance {
     border: none;
     padding: 0;
     margin: 0;
@@ -274,57 +290,61 @@ body{
 
 }
 
-#Balance{
-    color: rgb(140,76,209);
+#Balance {
+    color: rgb(140, 76, 209);
     font-size: 1.5rem;
     position: relative;
 
     right: 11rem;
 }
-#Available{
+
+#Available {
     font-size: 0.9rem;
     position: relative;
     width: 8rem;
-    bottom: 1.8rem ;
+    bottom: 1.8rem;
     right: 11rem;
 }
-.Seedetails{
+
+.Seedetails {
 
     padding: 0;
     margin: 0;
     top: 6rem;
     position: relative;
-    border-top:  1px solid rgba(30, 29, 29, 0.19);
+    border-top: 1px solid rgba(30, 29, 29, 0.19);
     width: 300px;
     right: 17.5rem;
     font-family: sans-serif;
 }
-.details{
+
+.details {
     border: none;
     padding: 0;
     margin: 0;
     background: none;
     font-size: 1.1rem;
     width: 10rem;
-    color: rgb(140,76,209);
+    color: rgb(140, 76, 209);
     cursor: pointer;
 }
 
 
-#wolf{
+#wolf {
     position: relative;
-    bottom:  8px;
+    bottom: 8px;
     width: 40px;
     height: 40px;
 }
-.modal_container{
+
+.modal_container {
     grid-area: modal_container;
     z-index: 10000;
     position: fixed;
 
     height: 100%;
     width: 100%;
-    justify-content: center ;
+    justify-content: center;
     color: white;
     background-color: rgba(0, 0, 0, 0.88);
     display: none;
@@ -340,12 +360,13 @@ body{
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
 }
 
-.buttonSingOff{
+.buttonSingOff {
     display: flex;
     position: relative;
 
@@ -353,44 +374,53 @@ body{
     flex-direction: row;
     justify-content: space-evenly;
 }
-.modal{
+
+.modal {
     display: none;
-    border: 3px solid rgb(239,19,54);;
-    padding: 2rem ;
-    background-color: black ;
-    border-radius:1rem ;
+    border: 3px solid rgb(239, 19, 54);
+    ;
+    padding: 2rem;
+    background-color: black;
+    border-radius: 1rem;
     height: 25rem;
     width: 35rem;
 
 }
-#modal3_1{
+
+#modal3_1 {
 
     display: flex;
     flex-direction: column;
 }
 
-#modal3_1 h1{
-    font-size:50px ;
+#modal3_1 h1 {
+    font-size: 50px;
 }
-#Succesful{
-    font-size:25px ;
+
+#Succesful {
+    font-size: 25px;
     position: relative;
     bottom: 3.5rem;
 }
-#tipoTransaccion, #fecha_hora, #valor{
+
+#tipoTransaccion,
+#fecha_hora,
+#valor {
     display: flex;
     position: relative;
     bottom: 1rem;
     flex-direction: row;
     justify-content: space-between;
 }
-#Logo{
+
+#Logo {
     display: flex;
 
     flex-direction: row;
     justify-content: center;
 }
-#wolfTarget{
+
+#wolfTarget {
     position: relative;
     bottom: 1.5rem;
     background: url(https://i.gifer.com/WSG.gif);
@@ -399,14 +429,18 @@ body{
     -webkit-text-fill-color: transparent;
 
 }
-#sure{
+
+/*
+#sure {
     text-align: center;
     font-family: 'Paytone One', sans-serif;
 }
-#Signoff, .Cancel {
+
+#Signoff,
+.Cancel {
     text-decoration: none;
     outline: none;
-    *font-size: 20px;
+    font-size: 20px;
     border-radius: 20px;
     padding: 5px 40px;
     border: 2px solid white;
@@ -416,32 +450,37 @@ body{
     font-family: 'Paytone One', sans-serif;
 
 }
-#Signoff:hover{
-    background-color:purple;
+
+#Signoff:hover {
+    background-color: purple;
     border-color: black;
 }
-.Cancel:hover{
-    background-color:purple;
+
+.Cancel:hover {
+    background-color: purple;
     border-color: black;
 }
-.show{
+
+.show {
     pointer-events: auto;
     display: block;
 }
 
 
 
-input[type="number"]{
+input[type="number"] {
     accent-color: mediumorchid;
     caret-color: mediumorchid;
 }
-input[type="password"]{
+
+input[type="password"] {
     accent-color: mediumorchid;
     caret-color: mediumorchid;
 }
+
 .inputBox2 {
     position: relative;
-    left:7rem;
+    left: 7rem;
     gap: 40px;
     width: 300px;
 
@@ -460,13 +499,14 @@ input[type="password"]{
     font-size: 1em;
 }
 
-#username2, #username4{
+#username2,
+#username4 {
     position: relative;
     top: 3rem;
 }
 
-#span2 #span4{
-    top:4rem !important;
+#span2 #span4 {
+    top: 4rem !important;
 }
 
 .username .span {
@@ -537,32 +577,27 @@ input[type="password"]{
     background-size: cover;
 }
 
+*/
 
-
-#article{
+.article4 {
     background-color: white;
-
     z-index: 0;
     color: black;
     display: flex;
     font-family: sans-serif;
     grid-area: article;
     height: 20vh;
-
     justify-content: center;
-
     align-items: center;
-
     margin: 0;
     padding: 0;
-
     font-size: 30px;
 
 
 
 }
 
-#article2{
+.article5 {
     background-color: white;
     text-align: center;
     z-index: 0;
@@ -586,8 +621,8 @@ input[type="password"]{
 }
 
 
-.footer{
-    background-color: rgb(245,244,245);
+.footer4 {
+    background-color: rgb(245, 244, 245);
     grid-area: footer;
 
     height: 5vh;
@@ -597,7 +632,7 @@ input[type="password"]{
     align-items: center;
 }
 
-#moneyProductos{
+#moneyProductos {
     display: flex;
     flex-direction: row;
     font-family: sans-serif;
@@ -618,8 +653,8 @@ input[type="password"]{
 }
 
 
-#help{
-    background-color:rgb(140,76,209);
+#help {
+    background-color: rgb(140, 76, 209);
     color: white;
     font-size: 15px;
     padding: 0.8rem;
@@ -631,6 +666,7 @@ input[type="password"]{
     cursor: pointer;
     position: relative;
 }
+
 #help::before {
     content: '';
     width: 0;
@@ -642,30 +678,32 @@ input[type="password"]{
     bottom: -20px;
     right: 0;
 }
+
 #help:hover {
     transform: scale(1.1);
 }
 
-.imageMoney{
+.imageMoney {
     height: 3rem;
     width: 3rem;
 }
 
-.savingsAccounts{
+.savingsAccounts {
     position: relative;
     bottom: 2.5rem;
     font-family: sans-serif;
     font-size: 1rem;
 }
 
-#Investments{
+#Investments {
     height: 3rem;
     width: 3rem;
     position: relative;
     bottom: 2.7rem;
     right: 2rem;
 }
-.Textinversion{
+
+.Textinversion {
     position: relative;
     bottom: 3rem;
     font-family: sans-serif;
@@ -673,16 +711,16 @@ input[type="password"]{
 
 }
 
-.TakeInvestment{
+.TakeInvestment {
     position: relative;
-    width:1000rem ;
+    width: 1000rem;
     height: 1rem;
     top: 1rem;
     font-family: sans-serif;
     font-size: 0.8rem;
 }
 
-.Seeinvestments{
+.Seeinvestments {
 
     padding: 0;
     margin: 0;
@@ -690,18 +728,19 @@ input[type="password"]{
     position: relative;
 
     right: 7rem;
-    border-top:  1px solid rgba(30, 29, 29, 0.19);
+    border-top: 1px solid rgba(30, 29, 29, 0.19);
     width: 300px;
     font-family: sans-serif;
 }
-.investmentslook{
+
+.investmentslook {
     border: none;
     padding: 0;
     margin: 0;
     background: none;
     font-size: 1.1rem;
     width: 10rem;
-    color: rgb(140,76,209);
+    color: rgb(140, 76, 209);
     cursor: pointer;
 }
 
@@ -710,23 +749,24 @@ input[type="password"]{
     position: relative;
     width: 17rem;
     height: 13rem;
-    border-radius:5px ;
+    border-radius: 5px;
 }
-.productos2 .border1{
+
+.productos2 .border1 {
     position: absolute;
-    inset:4px;
+    inset: 4px;
 
     padding: 50px 40px;
-    border-radius:8px ;
+    border-radius: 8px;
     z-index: 2;
     display: flex;
     justify-content: start;
-    flex-direction:column;
+    flex-direction: column;
 
-    border: 1px dashed rgba(0, 0, 0, 0.45) ;
+    border: 1px dashed rgba(0, 0, 0, 0.45);
 }
 
-#cdttoday{
+#cdttoday {
     font-family: sans-serif;
     font-size: 1.1rem;
     position: relative;
@@ -736,9 +776,10 @@ input[type="password"]{
     text-align: center;
     border-bottom: 1px solid purple;
 }
-.TextCDT{
+
+.TextCDT {
     font-family: sans-serif;
-    font-size:0.8rem;
+    font-size: 0.8rem;
     position: relative;
     bottom: 2.5rem;
     text-align: center;
@@ -751,21 +792,23 @@ input[type="password"]{
     right: 0.2rem;
 
 }
-.cdt{
+
+.cdt {
 
 
     width: 12rem;
     height: 2.5rem;
-    color: rgb(140,76,209);
-    border-color: rgb(140,76,209) ;
+    color: rgb(140, 76, 209);
+    border-color: rgb(140, 76, 209);
     cursor: pointer;
     transition: transform 0.3s ease;
 }
+
 .cdt:hover {
     transform: scale(1.1);
 }
 
-.taxcertificate{
+.taxcertificate {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -779,45 +822,47 @@ input[type="password"]{
     transition: transform 0.3s ease;
     cursor: pointer;
 }
-.taxcertificate:hover{
+
+.taxcertificate:hover {
     transform: scale(1.1);
 }
 
-#download{
+#download {
     background-color: white;
     height: 2.5rem;
     position: relative;
     left: 2rem;
-    border-radius:1rem ;
+    border-radius: 1rem;
     width: 7rem;
-    color: rgb(140,76,209);
-    border-color: rgb(140,76,209) ;
+    color: rgb(140, 76, 209);
+    border-color: rgb(140, 76, 209);
     cursor: pointer;
 
 }
-#download:hover{
+
+#download:hover {
     color: white;
-    background: rgb(140,76,209);
+    background: rgb(140, 76, 209);
 
 }
 
-#new{
+#new {
     background: mediumorchid;
     color: white;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    border-radius:1rem ;
+    border-radius: 1rem;
 }
 
 
-.travel{
-    position:relative;
+.travel {
+    position: relative;
     left: 2rem;
     width: 3rem;
     height: 3rem;
 }
 
-.taxcertificate2{
+.taxcertificate2 {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -831,24 +876,25 @@ input[type="password"]{
     transition: transform 0.3s ease;
     cursor: pointer;
 }
-.taxcertificate2:hover{
+
+.taxcertificate2:hover {
     transform: scale(1.1);
 }
 
-.discover{
+.discover {
     position: relative;
     top: 0.5rem;
-    left:1.5rem;
-}
-.travelcredit{
-    position: relative;
-    bottom: 0.5rem;
-    left:1.9rem;
+    left: 1.5rem;
 }
 
-#article2_1{
+.travelcredit {
+    position: relative;
+    bottom: 0.5rem;
+    left: 1.9rem;
+}
+
+#article2_1 {
     display: flex;
     flex-direction: row;
     gap: 50px;
 }
-*/
