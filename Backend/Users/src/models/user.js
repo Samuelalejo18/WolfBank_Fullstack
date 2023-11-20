@@ -12,6 +12,7 @@ const usersSchema = new mongoose.Schema(
       type: Number,
       unique: false,
       required: false,
+      default:0,
       validate: {
         validator: function (value) {
           return value >= 0;

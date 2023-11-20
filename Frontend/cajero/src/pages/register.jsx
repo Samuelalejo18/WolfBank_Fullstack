@@ -12,8 +12,7 @@ function RegisterPage() {
     setPasswordVisible(!passwordVisible);
   };
   const [isChecked, setIsChecked] = useState(false);
-const [isRegistrationSuccessful, setIsRegistrationSuccessful] = useState(false);
-  
+
   const {
     register,
     handleSubmit,
@@ -24,13 +23,12 @@ const [isRegistrationSuccessful, setIsRegistrationSuccessful] = useState(false);
   const onSubmit = handleSubmit(async (values) => {
     try {
       await signUp(values);
-      setIsRegistrationSuccessful(true);
     } catch (error) {
-      console.error('Error during registration:', error);
+      console.error("Error during registration:", error);
     }
   });
 
-  return   (
+  return (
     <body className="grid_container1">
       <header className="header2">
         <div className="logo"></div>
@@ -40,18 +38,13 @@ const [isRegistrationSuccessful, setIsRegistrationSuccessful] = useState(false);
       </header>
 
       <main className="main2">
-      {isRegistrationSuccessful ? (
-            <div className="registration-success">
-              <p>Registration successful! Thank you for joining Wolf Bank.</p>
-              <img src="../src/assets/1.png" id="wolf3" alt="" />
-            </div>
-         
-          ) :(
+       
+
         <div className="container2">
           <p id="bancavirtual">
             Welcome, Register and fill out your personal information.
           </p>
-      
+
           <form onSubmit={handleSubmit(onSubmit)} className="container4">
             <div className="containerinput">
               <div className="inputBox2">
@@ -170,7 +163,7 @@ const [isRegistrationSuccessful, setIsRegistrationSuccessful] = useState(false);
               </button>
             </div>
           </form>
-          
+
           <div className="errorZoddiv">
             {!isChecked && (
               <div className="errorZod">
@@ -184,7 +177,6 @@ const [isRegistrationSuccessful, setIsRegistrationSuccessful] = useState(false);
             ))}
           </div>
         </div>
-          )}
       </main>
 
       <article className="article">
