@@ -80,12 +80,18 @@ const login = async (req, res) => {
 
 const deposit = async (req, res) => {
   try {
-    const { identificationCard, balance } = req.body;
+    const { identificationCard, balance, password } = req.body;
     const userFound = await User.findOne({ identificationCard });
 
     userFound.balance += balance;
+    
+    const matchedPassword = await bcrypt.compare(password, userFound.password);
+    if (!matchedPassword) {
+      return res.status(400).json({
+        message: [" ❌ The password is incorrect"],
+      });
+    }
     await userFound.save();
-
     res.json({ message: "Transfer successful", newBalance: userFound.balance });
   } catch (error) {
     console.error(error);
@@ -95,11 +101,17 @@ const deposit = async (req, res) => {
 
 const withdraw = async (req, res) => {
   try {
-    const { identificationCard, balance } = req.body;
+    const { identificationCard, balance, password } = req.body;
     const userFound = await User.findOne({ identificationCard });
-
+    const matchedPassword = await bcrypt.compare(password, userFound.password);
+    if (!matchedPassword) {
+      return res.status(400).json({
+        message: [" ❌ The password is incorrect"],
+      });
+    }
     if (userFound.balance >= balance) {
       userFound.balance -= balance;
+      
       await userFound.save();
       res.json({
         message: "Withdrawal successful",
@@ -118,27 +130,46 @@ const withdraw = async (req, res) => {
 
 const transfer = async (req, res) => {
   try {
-    const { authenticatedUser, recipientUser, balance } = req.body;
-    const userFound = await User.findOne({ identificationCard });
-    console.log(authenticatedUser.userFound.identificationCard);
-    console.log(recipientUser.userFound.identificationCard);
+    const { authenticatedUser, recipientUser, balance, password } = req.body;
+    const userFoundAuth = await User.findOne({ identificationCard: authenticatedUser });
+    if (!userFoundAuth)
+      return res.status(400).json({
+        message: ["❌ The user does not exist"],
+      });
+    
+      const userFoundRecipient = await User.findOne({ identificationCard: recipientUser });
+    if (!userFoundRecipient)
+      return res.status(400).json({
+        message: ["❌ The user does not exist"],
+      });
 
-     if (uthenticatedUser.userFound.balance >= balance) {
-      userFound.balance -= balance;
-      await userFound.save();
+      const matchedPassword = await bcrypt.compare(password, userFoundAuth.password);
+      if (!matchedPassword) {
+        return res.status(400).json({
+          message: [" ❌ The password is incorrect"],
+        });
+      }
+      
+
+      
+     if (userFoundAuth.balance >= balance) {
+      userFoundAuth.balance -= balance;
+      userFoundRecipient.balance +=balance;
+      await  userFoundAuth.save();
+      await userFoundRecipient.save();
       res.json({
-        message: "Withdrawal successful",
-        newBalance: userFound.balance,
+        message: "Transfer successful",
+        newBalance: userFoundAuth.balance,
       });
     } else {
       return res
         .status(400)
-        .json({ message: "Failed withdrawal, insufficient balance" });
+        .json({ message: "Failed transfer, insufficient balance" });
     }
     
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ message: "Internal Server Error" });
+    return res.status(500).json({ message: "Internal Server Error", error: error.message });
   }
 };
 
@@ -178,7 +209,6 @@ const verifyToken = async (req, res) => {
 
     return res.json({
       id: userFound._id,
-
       email: userFound.email,
       identificationCard: userFound.identificationCard,
       name: userFound.name,
@@ -196,4 +226,5 @@ module.exports = {
   verifyToken,
   deposit,
   withdraw,
+  transfer
 };

@@ -115,23 +115,6 @@ meta {
 }
 
 
-.erros {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    gap: 15px;
-    flex-direction: row !important;
-}
-
-.error {
-    background-color: rgb(128, 0, 128);
-    padding-bottom: 0;
-    padding-top: 0;
-    margin: 0;
-    padding-left: 3px;
-    padding-right: 6px;
-    border-radius: 20px;
-}
 
 
 
@@ -191,11 +174,20 @@ p {
     font-family: 'Paytone One', sans-serif;
 }
 
+.containerinput {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 90%;
+    justify-content: center;
+    gap: 5rem;
+}
+
 .container4 {
     border-radius: 20px;
     height: 70vh;
-    width: 35%;
-
+    width: 45%;
+    flex-wrap: nowrap;
     display: flex;
     gap: 2rem;
     flex-direction: column;
@@ -222,23 +214,14 @@ input[type="password"] {
     caret-color: mediumorchid;
 }
 
-.inputBox {
-    position: relative;
-    width: 60%;
-    top: 40px;
-    right: 20px;
-
-
-
-}
-
 .inputBox2 {
     position: relative;
-    width: 60%;
+    width: 40%;
     top: 40px;
     right: 20px;
-
 }
+
+
 
 .username input {
     padding: 15px 20px;
@@ -251,7 +234,7 @@ input[type="password"] {
     font-size: 1em;
 }
 
-.inputBox input {
+.inputBox2 input {
     padding: 15px 20px;
     outline: none;
     width: 100%;
@@ -277,7 +260,7 @@ input[type="password"] {
     letter-spacing: 0.1em;
 }
 
-.inputBox span {
+.inputBox2 span {
     position: absolute;
     left: 2px;
     top: 1px;
@@ -292,7 +275,7 @@ input[type="password"] {
 }
 
 .username input:focus~span,
-.inputBox input:valid~span {
+.inputBox2 input:valid~span {
     color: rgb(8, 8, 8);
     font-size: 0.75em;
     transform: translateX(10px) translateY(-7px);
@@ -317,8 +300,8 @@ input[type="password"] {
     padding: 5px;
 }
 
-.inputBox input:focus~span,
-.inputBox input:valid~span {
+.inputBox2 input:focus~span,
+.inputBox2 input:valid~span {
     color: rgb(8, 8, 8);
     font-size: 0.75em;
     transform: translateX(10px) translateY(-7px);
@@ -448,10 +431,10 @@ article,
     height: 40px;
 }
 
-#Remember{
+#Remember {
     position: relative;
 
-gap: 10px;
+    gap: 10px;
     padding-left: 180px;
     padding-right: 180px;
     border: 0;
@@ -461,40 +444,65 @@ gap: 10px;
     flex-direction: row;
 
 }
-#Remember span{
+
+#Remember span {
     text-decoration: underline;
     color: mediumpurple;
 }
-#Remember span:hover{
+
+#Remember span:hover {
     text-decoration: underline;
     color: mediumpurple;
     cursor: pointer;
 }
 
-#Next, #Cancel{
+#Next,
+#Cancel {
     position: relative;
     text-decoration: none;
     outline: none;
     font-size: 20px;
     border-radius: 20px;
     padding: 5px 60px;
-    border: 2px solid white ;
+    border: 2px solid white;
     cursor: pointer;
     background-color: transparent;
     font-family: 'Paytone One', sans-serif;
 }
-input[type="checkbox"]{
+
+input[type="checkbox"] {
     accent-color: mediumorchid;
     caret-color: mediumorchid;
 }
-#Cancel:hover{
-    background-color:purple;
+
+#Cancel:hover {
+    background-color: purple;
     border-color: black;
 }
-#Next:hover{
-    background-color:purple;
+
+#Next:hover {
+    background-color: purple;
     border-color: black;
 }
-#Next, #Cancel p{
+
+#Next,
+#Cancel p {
     background-color: transparent;
+}
+
+.registration-success {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    flex-direction: column;
+    font-size: 2rem;
+    font-family: 'Paytone One', sans-serif;
+}
+
+#wolf3{
+    height: 10%;
+    width: 25%;
 }

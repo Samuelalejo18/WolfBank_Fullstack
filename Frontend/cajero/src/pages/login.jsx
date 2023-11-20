@@ -5,7 +5,8 @@ import { useAuth } from "../context/auth.context";
 import "../styles/login.css";
 function LoginPage() {
   const [passwordVisible, setPasswordVisible] = useState(false);
-
+  // eslint-disable-next-line no-unused-vars
+  const [textVisible, setTextVisible] = useState(false);
   const showHide = () => {
     setPasswordVisible(!passwordVisible);
   };
@@ -37,28 +38,18 @@ function LoginPage() {
       <main className="main">
         <div className="container2">
           <p id="bancavirtual">Enter your virtual banking </p>
-          <div className="erros">
-            {errors.email && (
-              <div className=" error">
-                <p>❌ email is required</p>
-              </div>
-            )}
-            {errors.email && (
-              <div className=" error">
-                <p>❌ password is required</p>
-              </div>
-            )}
-          </div>
+       
           <form onSubmit={handleSubmit(onSubmit)} className="container3">
-            <div className="inputBox2">
+            <div className="inputBox">
               <div className="username">
                 <label htmlFor="username1" />
                 <input
-                  type="email"
+                  type={textVisible ? "text" : "LastName"}
                   id="username1"
+                  required="true"
                   {...register("email", { required: true })}
                 />
-                <span>Email</span>
+                <span>Email {errors.email && <>is required ❌</>}</span>
               </div>
             </div>
 
@@ -70,7 +61,11 @@ function LoginPage() {
                 id="password"
                 {...register("password", { required: true })}
               />
-              <span>Password</span>
+              <span>Password  {errors.password && (
+              
+                <>is required ❌</>
+           
+            )}</span>
               <div
                 id="toggle"
                 className={passwordVisible ? "hide" : ""}
@@ -103,12 +98,7 @@ function LoginPage() {
 
       <article className="article">
         <button className="help">
-          <a href="password%20olvidada.html">Forgot your password?</a>
-        </button>
-        <button className="help">
-          <Link to="/register">
-             Sign up here
-          </Link>
+          <Link to="/register">Sign up here</Link>
         </button>
       </article>
 

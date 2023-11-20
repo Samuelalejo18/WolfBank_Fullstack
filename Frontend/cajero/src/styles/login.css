@@ -115,23 +115,6 @@ meta {
 }
 
 
-.erros {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    gap: 15px;
-    flex-direction: row !important;
-}
-
-.error {
-    background-color: rgb(128, 0, 128);
-    padding-bottom: 0;
-    padding-top: 0;
-    margin: 0;
-    padding-left: 3px;
-    padding-right: 6px;
-    border-radius: 20px;
-}
 
 
 
@@ -231,13 +214,7 @@ input[type="password"] {
 
 }
 
-.inputBox2 {
-    position: relative;
-    width: 60%;
-    top: 40px;
-    right: 20px;
 
-}
 
 .username input {
     padding: 15px 20px;

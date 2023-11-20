@@ -1,10 +1,24 @@
+import { useState } from 'react';
+import Deposit from '../components/deposit';
+import Logout from '../components/logout';
+import Transfer from '../components/transfer';
+import Withdraw from "../components/withdraw";
+import { useAuth } from '../context/auth.context';
 import "../styles/bank.css";
 function Bank() {
- 
+  const {  user } = useAuth();
+const [openModalDeposit,setOpenModalDeposit]=useState(false);
+const [openModalTransfer,setOpenModalTransfer]=useState(false);
+const [openModalWithdraw,setOpenModalTWithdraw]=useState(false);
+const [openModalLogout,setOpenModalLogout]=useState(false);
   return (
     <>
     
     <body className="grid_container4" id="grid_container4">
+    <Deposit open={openModalDeposit} onClose={()=>setOpenModalDeposit(false)} />
+    <Transfer open={openModalTransfer} onClose={()=>setOpenModalTransfer(false)} />
+    < Withdraw open={openModalWithdraw} onClose={()=>setOpenModalTWithdraw(false)} />
+    < Logout open={openModalLogout} onClose={()=>setOpenModalLogout(false)} />
     <header className="header3">
       <img src="../src/assets/logo%20wolf.png" id="wolf_logo4" alt="" />
       <p id="wolf_banck4">Wolf Bank</p>
@@ -15,15 +29,14 @@ function Bank() {
       <button className="btn">
         <img src="../src/assets/usuario.png" id="" alt="" />
         <span id="user" style={{ color: "white" }}>
-          {" "}
-          Samuel{" "}
-        </span>{" "}
+        {user.userName}
+        </span>
       </button>
     </nav>
     <section className="section">
       <h1 style={{ color: "white" }}>
         {" "}
-        Hi, <span>Samuel</span>
+        Hi, <span>   {user.name}</span>
       </h1>
     </section>
     <aside className="aside">
@@ -38,29 +51,31 @@ function Bank() {
         <div className="column">
           {" "}
           <button className="btn" id="retiro1">
-            <img src="../src/assets/retiro-de-efectivo.png" id="retiro" alt="" />{" "}
+            <img src="../src/assets/retiro-de-efectivo.png" id="retiro" alt=""onClick={()=>setOpenModalTWithdraw(true)} />{" "}
             <p style={{ color: "white" }}>Withdraw</p>{" "}
           </button>
         </div>
         <div className="column">
           {" "}
-          <button className="btn" id="Trans">
+          <button className="btn" id="Trans" onClick={()=>setOpenModalTransfer(true)}>
             <img src="../src/assets/Tranferir.png" id="trans1" alt="" />{" "}
             <p style={{ color: "white" }}>Transfer</p>{" "}
           </button>
         </div>
         <div className="column">
           {" "}
-          <button className="btn" id="ingresar1">
+          <button className="btn" id="ingresar1" onClick={()=>setOpenModalDeposit(true)}>
             <img src=" ../src/assets/ingresar.png" id="ingresar2" alt="" />{" "}
             <p style={{ color: "white" }}>Deposit </p>
+            
           </button>
         </div>
+       
         <div className="column">
           {" "}
           <button className="btn" id="salir1">
             {" "}
-            <img src="../src/assets/salir.png" id="salir" alt="" />{" "}
+            <img src="../src/assets/salir.png" id="salir" alt="" onClick={()=>setOpenModalLogout(true)} />{" "}
             <p style={{ color: "white" }}>Go out</p>
           </button>
         </div>
@@ -99,7 +114,7 @@ function Bank() {
             </button>
           </div>
           <div id="availableBalance">
-            <p id="Balance">$200000</p>
+            <p id="Balance">  ${user.balance}</p>
             <p style={{ color: "black" }} id="Available">Available balance</p>
           </div>
           <div className="Seedetails">

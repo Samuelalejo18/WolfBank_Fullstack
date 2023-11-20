@@ -7,7 +7,7 @@ function createAccessToken(payload) {
             payload,
             process.env.SECRET,
             {
-                expiresIn: 60, // un minuto
+                expiresIn: 300, // 5 minutos
             },
             (err, token) => {
                 if (err) reject(err);

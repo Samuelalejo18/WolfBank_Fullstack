@@ -21,3 +21,13 @@ Content-Type: application/json
   "balance":0,
   "password":"Lukas2012"
 }
+
+ {
+  "name":"maik",
+  "lastName":"Becerra ", 
+  "identificationCard":1014180724,
+  "userName":"Maik",
+  "email":"Maik@gmail.com",
+  "balance":0,
+  "password":"sonic22"
+}

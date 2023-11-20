@@ -1,0 +1,8 @@
+PATCH   http://localhost:5000/api/deposit
+Content-Type: application/json
+ {
+
+  "identificationCard":1014180728,
+  "balance":10000,
+
+}

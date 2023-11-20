@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import Cookies from "js-cookie";
 import { createContext, useContext, useEffect, useState } from "react";
-import { loginRequest, registerRequest, verifyTokenRequest } from "../api/auth";
+import { depositRequest, loginRequest, registerRequest, transferRequest, verifyTokenRequest, withdrawRequest } from "../api/auth";
 
 export const AuthContext = createContext();
 export const useAuth = () => {
@@ -23,8 +23,8 @@ export const AuthProvider = ({ children }) => {
 
   const signUp = async (user) => {
     try {
-      user.phone = Number(user.phone);
-      user.age = Number(user.age);
+      user.identificationCard = Number(user.identificationCard);
+     
       const res = await registerRequest(user);
 
       setUser(res.data);
@@ -33,6 +33,58 @@ export const AuthProvider = ({ children }) => {
       setErrors(error.response.data);
     }
   };
+
+  const deposit = async (user) => {
+    try {
+      user.identificationCard = Number(user.identificationCard);
+      user.balance= Number(user.balance);
+      const res = await depositRequest(user);
+      setUser(res.data);
+  
+      setIsAuthenticated(true);
+    } catch (error) {
+      if (Array.isArray(error.response.data)) {
+        return setErrors(error.response.data);
+      }
+      setErrors(error.response.data.message);
+    }
+  };
+  const withdraw = async (user) => {
+    try {
+      user.identificationCard = Number(user.identificationCard);
+      user.balance= Number(user.balance);
+      const res = await withdrawRequest(user);
+      setUser(res.data);
+  
+      setIsAuthenticated(true);
+    } catch (error) {
+      if (Array.isArray(error.response.data)) {
+        return setErrors(error.response.data);
+      }
+      setErrors(error.response.data.message);
+    }
+  };
+  
+  
+
+
+
+const transfer = async (user) => {
+  try {
+    user.identificationCard = Number(user.authenticatedUser);
+    user.identificationCard = Number(user.recipientUser);
+    user.balance= Number(user.balance);
+    const res = await transferRequest(user);
+    setUser(res.data);
+
+    setIsAuthenticated(true);
+  } catch (error) {
+    if (Array.isArray(error.response.data)) {
+      return setErrors(error.response.data);
+    }
+    setErrors(error.response.data.message);
+  }
+};
 
   const signIn = async (user) => {
     try {
@@ -96,6 +148,9 @@ export const AuthProvider = ({ children }) => {
         signIn,
         loading,
         logout,
+        deposit,
+        transfer,
+        withdraw
       }}
     >
       {children}

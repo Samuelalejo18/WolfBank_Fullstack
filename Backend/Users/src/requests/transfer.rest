@@ -1,0 +1,10 @@
+PATCH   http://localhost:5000/api/transfer
+Content-Type: application/json
+ {
+
+  "recipientUser":1014180728,
+  "authenticatedUser":1014180727,
+  "balance":100,
+
+}
+
