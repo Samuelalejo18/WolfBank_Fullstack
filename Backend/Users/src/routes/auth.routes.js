@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const router = Router();
-const {register, login,logout,profile,verifyToken,deposit, withdraw,transfer} = require("../controllers/auth.controllers.js");
+const {register, login,logout,profile,verifyToken} = require("../controllers/auth.controllers.js");
+const {deposit, withdraw,transfer,/*getMovements*/}= require("../controllers/money.controller.js")
 const { authRequired } = require("../middlewares/validateToken.js");
 const { validateSchema } = require("../middlewares/validator.middleware.js");
 const {
@@ -13,11 +14,12 @@ const {
 
 router.post("/register", validateSchema(registerSchema), register);
 router.post("/login", validateSchema(loginSchema), login);
-router.patch("/deposit", validateSchema(MoneySchema), deposit);
-router.patch("/withdraw", validateSchema(MoneySchema), withdraw);
-router.patch("/transfer", validateSchema(transferSchema),transfer);
+router.patch("/deposit",/*authRequired,*/ validateSchema(MoneySchema), deposit);
+router.patch("/withdraw", /*authRequired,*/ validateSchema(MoneySchema), withdraw);
+router.patch("/transfer",/*authRequired,*/ validateSchema(transferSchema),transfer);
 router.post("/logout", logout);
 router.get("/verify", verifyToken);
 router.get("/profile", authRequired, profile);
+/*router.get("/movement",/*authRequired,*/ /*getMovements);*/
 
 module.exports = router;

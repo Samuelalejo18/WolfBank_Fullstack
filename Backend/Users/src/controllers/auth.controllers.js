@@ -78,102 +78,6 @@ const login = async (req, res) => {
   }
 };
 
-const deposit = async (req, res) => {
-  try {
-    const { identificationCard, balance, password } = req.body;
-    const userFound = await User.findOne({ identificationCard });
-
-    userFound.balance += balance;
-    
-    const matchedPassword = await bcrypt.compare(password, userFound.password);
-    if (!matchedPassword) {
-      return res.status(400).json({
-        message: [" ❌ The password is incorrect"],
-      });
-    }
-    await userFound.save();
-    res.json({ message: "Transfer successful", newBalance: userFound.balance });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: "Internal Server Error" });
-  }
-};
-
-const withdraw = async (req, res) => {
-  try {
-    const { identificationCard, balance, password } = req.body;
-    const userFound = await User.findOne({ identificationCard });
-    const matchedPassword = await bcrypt.compare(password, userFound.password);
-    if (!matchedPassword) {
-      return res.status(400).json({
-        message: [" ❌ The password is incorrect"],
-      });
-    }
-    if (userFound.balance >= balance) {
-      userFound.balance -= balance;
-      
-      await userFound.save();
-      res.json({
-        message: "Withdrawal successful",
-        newBalance: userFound.balance,
-      });
-    } else {
-      return res
-        .status(400)
-        .json({ message: "Failed withdrawal, insufficient balance" });
-    }
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: "Internal Server Error" });
-  }
-};
-
-const transfer = async (req, res) => {
-  try {
-    const { authenticatedUser, recipientUser, balance, password } = req.body;
-    const userFoundAuth = await User.findOne({ identificationCard: authenticatedUser });
-    if (!userFoundAuth)
-      return res.status(400).json({
-        message: ["❌ The user does not exist"],
-      });
-    
-      const userFoundRecipient = await User.findOne({ identificationCard: recipientUser });
-    if (!userFoundRecipient)
-      return res.status(400).json({
-        message: ["❌ The user does not exist"],
-      });
-
-      const matchedPassword = await bcrypt.compare(password, userFoundAuth.password);
-      if (!matchedPassword) {
-        return res.status(400).json({
-          message: [" ❌ The password is incorrect"],
-        });
-      }
-      
-
-      
-     if (userFoundAuth.balance >= balance) {
-      userFoundAuth.balance -= balance;
-      userFoundRecipient.balance +=balance;
-      await  userFoundAuth.save();
-      await userFoundRecipient.save();
-      res.json({
-        message: "Transfer successful",
-        newBalance: userFoundAuth.balance,
-      });
-    } else {
-      return res
-        .status(400)
-        .json({ message: "Failed transfer, insufficient balance" });
-    }
-    
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: "Internal Server Error", error: error.message });
-  }
-};
-
-
 //Deslogearse o cerrerar el token
 
 const logout = (req, res) => {
@@ -224,7 +128,5 @@ module.exports = {
   logout,
   profile,
   verifyToken,
-  deposit,
-  withdraw,
-  transfer
+
 };

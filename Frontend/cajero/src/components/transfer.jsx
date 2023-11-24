@@ -16,7 +16,7 @@ function Transfer({ open, onClose }) {
   };
   
 const { register, handleSubmit, formState: { errors } } = useForm();
-const {  transfer, errors:  transferErros,  } = useAuth();
+const {  transfer, errors:  transferErrors,  } = useAuth();
 
 
 const onSubmit = handleSubmit((data) => {
@@ -104,7 +104,7 @@ const onSubmit = handleSubmit((data) => {
        
       </form>
       <div className="errorZoddiv">
-          {transferErros.map((error, i) => (
+          {transferErrors.map((error, i) => (
             <div className="errorZod" key={i}>
               {error}
             </div>

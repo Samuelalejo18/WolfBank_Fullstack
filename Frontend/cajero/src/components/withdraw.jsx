@@ -18,7 +18,7 @@ function Withdraw({ open, onClose }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { withdraw, errors: withdrawtErros } = useAuth();
+  const { withdraw, errors: withdrawtErrors } = useAuth();
 
   const onSubmit = handleSubmit((data) => {
     withdraw(data);
@@ -85,12 +85,14 @@ function Withdraw({ open, onClose }) {
       </form>
       
       <div className="errorZoddiv">
-          {withdrawtErros.map((error, i) => (
-            <div className="errorZod" key={i}>
-              {error}
-            </div>
-          ))}
-        </div>
+          
+            {withdrawtErrors.map((error, i) => (
+              <div className="errorZod" key={i}>
+                {error}
+              </div>
+            ))}
+          </div>
+      
     </div>
   );
 }

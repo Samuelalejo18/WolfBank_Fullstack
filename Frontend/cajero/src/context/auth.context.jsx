@@ -2,8 +2,8 @@
 /* eslint-disable react/prop-types */
 import Cookies from "js-cookie";
 import { createContext, useContext, useEffect, useState } from "react";
+import Swal from 'sweetalert2';
 import { depositRequest, loginRequest, registerRequest, transferRequest, verifyTokenRequest, withdrawRequest } from "../api/auth";
-
 export const AuthContext = createContext();
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -18,19 +18,33 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  
   const [errors, setErrors] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const signUp = async (user) => {
     try {
       user.identificationCard = Number(user.identificationCard);
-     
       const res = await registerRequest(user);
-
       setUser(res.data);
       // setIsAuthenticated(true);
+      Swal.fire({
+        position: "top",
+        icon: "success",
+        title: "You have registered successfully",
+        showConfirmButton: false,
+        timer: 3000
+      });
     } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Failed Sign Up",
+        text: "Fill in the data correctly",
+        footer: 'Try again',
+        timer: 1500,
+      });
       setErrors(error.response.data);
+    
     }
   };
 
@@ -40,14 +54,27 @@ export const AuthProvider = ({ children }) => {
       user.balance= Number(user.balance);
       const res = await depositRequest(user);
       setUser(res.data);
-  
-      setIsAuthenticated(true);
+      Swal.fire({
+        position: "top",
+        icon: "success",
+        title: "Deposit successfully",
+        showConfirmButton: false,
+        timer: 2000
+      });
     } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Failed Deposit",
+        text: "Fill in the data correctly",
+        footer: 'Try again',
+        timer: 1500,
+      });
       if (Array.isArray(error.response.data)) {
         return setErrors(error.response.data);
       }
       setErrors(error.response.data.message);
     }
+    
   };
   const withdraw = async (user) => {
     try {
@@ -55,9 +82,21 @@ export const AuthProvider = ({ children }) => {
       user.balance= Number(user.balance);
       const res = await withdrawRequest(user);
       setUser(res.data);
-  
-      setIsAuthenticated(true);
+      Swal.fire({
+        position: "top",
+        icon: "success",
+        title: "Withdraw successfully",
+        showConfirmButton: false,
+        timer: 2000
+      });
     } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Failed withdrawal",
+        text: "Fill in the data correctly",
+        footer: 'Try again',
+        timer: 1500,
+      });
       if (Array.isArray(error.response.data)) {
         return setErrors(error.response.data);
       }
@@ -65,9 +104,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
   
-  
-
-
 
 const transfer = async (user) => {
   try {
@@ -77,8 +113,21 @@ const transfer = async (user) => {
     const res = await transferRequest(user);
     setUser(res.data);
 
-    setIsAuthenticated(true);
+    Swal.fire({
+      position: "top",
+      icon: "success",
+      title: "Withdraw successfully",
+      showConfirmButton: false,
+      timer: 2000
+    });
   } catch (error) {
+    Swal.fire({
+      icon: "error",
+      title: "Failed Transfer",
+      text: "Fill in the data correctly",
+      footer: 'Try again',
+      timer: 1500,
+    });
     if (Array.isArray(error.response.data)) {
       return setErrors(error.response.data);
     }
@@ -93,6 +142,13 @@ const transfer = async (user) => {
 
       setIsAuthenticated(true);
     } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Failed Sign In",
+        text: "Fill in the data correctly",
+        footer: 'Try again',
+        timer: 1500,
+      });
       if (Array.isArray(error.response.data)) {
         return setErrors(error.response.data);
       }
