@@ -94,8 +94,8 @@ export const AuthProvider = ({ children }) => {
         icon: "error",
         title: "Failed withdrawal",
         text: "Fill in the data correctly",
-        footer: 'Try again',
-        timer: 1500,
+        confirmButtonText: '<a href="http://localhost:5173/Bank" style="color: white;">Try again</a>',
+        timer: 10000,
       });
       if (Array.isArray(error.response.data)) {
         return setErrors(error.response.data);
@@ -125,7 +125,7 @@ const transfer = async (user) => {
       icon: "error",
       title: "Failed Transfer",
       text: "Fill in the data correctly",
-      footer: 'Try again',
+      confirmButtonText: '<a href="http://localhost:5173/Bank" style="color: white;">Try again</a>',
       timer: 1500,
     });
     if (Array.isArray(error.response.data)) {

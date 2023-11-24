@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, } from "react";
 
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/auth.context";
@@ -23,6 +23,7 @@ function Withdraw({ open, onClose }) {
   const onSubmit = handleSubmit((data) => {
     withdraw(data);
   });
+
 
   if (!open) return null;
   return (
@@ -76,23 +77,20 @@ function Withdraw({ open, onClose }) {
           ></div>
         </div>
 
-      
         <div className="btnMoney">
-        <button id="ingresar">
-          <p>Withdraw</p>
-        </button>
-      </div>
+          <button id="ingresar">
+            <p>Withdraw</p>
+          </button>
+        </div>
       </form>
-      
+
       <div className="errorZoddiv">
-          
-            {withdrawtErrors.map((error, i) => (
-              <div className="errorZod" key={i}>
-                {error}
-              </div>
-            ))}
+        {withdrawtErrors.map((error, i) => (
+          <div className="errorZod" key={i}>
+            {error}
           </div>
-      
+        ))}
+      </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Deposit from '../components/deposit';
 import Logout from '../components/logout';
 import Transfer from '../components/transfer';
@@ -11,6 +11,27 @@ const [openModalDeposit,setOpenModalDeposit]=useState(false);
 const [openModalTransfer,setOpenModalTransfer]=useState(false);
 const [openModalWithdraw,setOpenModalTWithdraw]=useState(false);
 const [openModalLogout,setOpenModalLogout]=useState(false);
+const [admissionDateTime, setAdmissionDateTime] = useState("");
+
+  useEffect(() => {
+    // Función para obtener la fecha y hora actual en el formato deseado
+    const getCurrentDateTime = () => {
+      const today = new Date();
+      const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false };
+      return today.toLocaleDateString('en-US', options);
+    };
+
+    // Establecer la fecha y hora actual cuando el componente se monta
+    setAdmissionDateTime(getCurrentDateTime());
+
+    // Actualizar la hora cada segundo
+    const intervalId = setInterval(() => {
+      setAdmissionDateTime(getCurrentDateTime());
+    }, 1000);
+
+    // Limpiar el intervalo cuando el componente se desmonta
+    return () => clearInterval(intervalId);
+  }, []);
   return (
     <>
     
@@ -25,11 +46,13 @@ const [openModalLogout,setOpenModalLogout]=useState(false);
     </header>
     <nav className="navbar">
       <p style={{ color: "white" }}>Date of admission:</p>
-      <p id=" admission" style={{ color: "white" }} />
+      <p id=" admission" style={{ color: "white" }} > {admissionDateTime} </p>
+
+
       <button className="btn">
         <img src="../src/assets/usuario.png" id="" alt="" />
         <span id="user" style={{ color: "white" }}>
-        {user.userName}
+        {user.name}  {user.lastName} 
         </span>
       </button>
     </nav>
@@ -177,114 +200,7 @@ const [openModalLogout,setOpenModalLogout]=useState(false);
         </div>
       </div>
     </main>
-    {/*
-    <div className="modal_container" id="mondal_container">
-      <div className="modal" id="modal2">
-        <h1 id="Sure"> Are you sure you want to log out?</h1>
-        <div className="buttonSingOff">
-          <button id="Signoff">
-            <a href="login1.html">
-              <p style={{ color: "white" }}>Sign off</p>
-            </a>
-          </button>
-          <button className="Cancel" id="Cancel">
-            <p style={{ color: "white" }}>Cancel</p>
-          </button>
-        </div>
-      </div>
-      <div className="modal" id="modal3">
-        <h1> Enter money</h1>
-        <div className="inputBox2">
-          <div className="username">
-            <label htmlFor="username1" />
-            <input type="number" id="username1" />
-            <span className="span" style={{ color: "white" }}>
-              $
-            </span>
-          </div>
-        </div>
-        <div className="inputBox2">
-          <div className="username">
-            <label htmlFor="username2" />
-            <input type="password" required="" id="username2" />
-            <span className="span2 " style={{ color: "white" }}>
-              Password
-            </span>
-            <div id="toggle" onClick="showHide();" />
-          </div>
-        </div>
-        <div className="buttonSingOff">
-          <button className="Cancel" id="transaction">
-            <p style={{ color: "white" }}>Make transaction</p>
-          </button>
-          <button className="Cancel" id="cancel2">
-            <p style={{ color: "white" }}>Cancel</p>
-          </button>
-        </div>
-      </div>
-      <div className="modal" id="modal3_1">
-        <div id="Logo">
-          <img src="../src/assets/logo%20wolf.png" id="wolflogo" alt="" />
-          <h1 id="wolfTarget" style={{ color: "white" }}>
-            Wolf Bank
-          </h1>
-        </div>
-        <p id="Succesful" style={{ color: "white" }}>
-          Succesful transaction!!
-        </p>
-        <div id="tipoTransaccion">
-          <p style={{ color: "white" }}>
-            <strong> Transaction Type</strong>
-          </p>
-          <p style={{ color: "white" }}>Money income</p>
-        </div>
-        <hr />
-        <div id="fecha_hora">
-          <p style={{ color: "white" }}>
-            <strong> Date and Time</strong>
-          </p>
-          <p id="Date" />
-        </div>
-        <hr />
-        <div id="valor">
-          <p   style={{ color: "black" }}>
-            <strong> Value </strong>
-          </p>
-          <p id="Value"> </p>
-        </div>
-      </div>
-      <div className="modal" id="modal4">
-        <h1> withdraw cashy</h1>
-        <div className="inputBox2">
-          <div className="username">
-            <label htmlFor="username3" />
-            <input type="number" id="username3" />
-            <span className="span" style={{ color: "white" }}>
-              $
-            </span>
-          </div>
-        </div>
-        <div className="inputBox2">
-          <div className="username">
-            <label htmlFor="username4" />
-            <input type="password" required="" id="username4" />
-            <span className="span2" id="span4" style={{ color: "white" }}>
-              Password
-            </span>
-            <div id="toggle" />
-          </div>
-        </div>
-        <div className="buttonSingOff">
-          <button className="Cancel" id="transaction2">
-            <p style={{ color: "white" }}>Make transaction</p>
-          </button>
-          <button className="Cancel" id="cancel3">
-            <p style={{ color: "white" }}>Cancel</p>
-          </button>
-        </div>
-      </div>
-    </div>
-  */}
+    
     <article className="article4">
       <div className="taxcertificate">
         <p id="new"> New</p>
@@ -326,4 +242,5 @@ const [openModalLogout,setOpenModalLogout]=useState(false);
   
   );
 }
+
 export default Bank;

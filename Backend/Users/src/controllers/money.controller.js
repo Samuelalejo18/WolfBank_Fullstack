@@ -52,14 +52,13 @@ const deposit = async (req, res) => {
           message: [" ❌ The password is incorrect"],
         });
       }
-      const userBalance =  await User.findOne({ balance });
       
-
-    if (userBalance >= balance) {
-      return res.status(400).json({
-        message: [" ❌ Failed withdrawal, insufficient balance"],
-      });
-    }
+  
+      if (userFound.balance >= balance) {
+        return res.status(400).json({
+          message: [ "Failed transfer, insufficient balance"],
+        });
+      }
 
       userFound.balance -= balance;
       await userFound.save();
@@ -78,7 +77,6 @@ const deposit = async (req, res) => {
         newBalance: userFound.balance,
       });
   
-
 
     } catch (error) {
       console.error(error);
