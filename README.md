@@ -1,0 +1,2 @@
+Creación de un prototipo de una tienda e-commerce responsive para la venta de videojuegos. El aplicativo permite al usuario registrarse, autenticarse, buscar y filtrar productos, añadir y eliminar productos del carrito de compras, visualizar la pre-factura y simulación de pagos. Utilicé React, JavaScript, CSS, SCSS, HTML, Node.js, MongoDB, Dotenv, Json Web Token y Manejo de Cookies
+![image](https://github.com/user-attachments/assets/8a2d92a1-7615-4cd4-8d41-afb0b91bdb93)
